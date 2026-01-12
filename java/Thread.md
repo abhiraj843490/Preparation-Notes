@@ -21,7 +21,7 @@ https://medium.com/@reetesh043/difference-between-completablefuture-and-future-i
 
 ```java
 
-Q. Sum 1 to N number using Executor service, Future and callable
+Q: Sum 1 to N number using Executor service, Future and callable
    
 import java.util.concurrent.*;
 
@@ -136,7 +136,7 @@ int sum = pool.invoke(new SumTask(1, 100));
 
 # 🧠 Interview Tip
 
-> “To achieve true parallelism, we must use multiple threads running at the same time. In Java, the most common ways are: ExecutorService with fixed thread pools, CompletableFuture for async pipelines, or parallelStream for parallel computation.”
+> To achieve true parallelism, we must use multiple threads running at the same time. In Java, the most common ways are: ExecutorService with fixed thread pools, CompletableFuture for async pipelines, or parallelStream for parallel computation.
 
 
 # Question & Answer:
@@ -371,15 +371,9 @@ This avoids intrinsic locks entirely.
 
 Use this final statement:
 
-> “Producer-consumer is a classic concurrency problem. I solved it using `wait()` and `notify()` with proper condition checks using `while`. In real projects, I prefer `BlockingQueue` because it simplifies concurrency and avoids manual synchronization bugs.”
+> Producer-consumer is a classic concurrency problem. I solved it using `wait()` and `notify()` with proper condition checks using `while`. In real projects, I prefer `BlockingQueue` because it simplifies concurrency and avoids manual synchronization bugs.
 
 ---
 
-If you want, I can also give:
-
-✅ A better version using BlockingQueue  
-✅ A version using Lock + Condition  
-✅ Trick questions interviewer might ask  
-✅ Race condition variations
-
-Just tell me **"give advanced producer-consumer"**.
+## Thread starvation
+Semaphore

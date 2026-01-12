@@ -14,6 +14,8 @@
 
 **Q. Find Minimum Time to Reach Last Room I**
 
+
+```java
 class Solution {
     public int minTimeToReach(int[][] moveTime) {
         int n=moveTime.length, m=moveTime[0].length;
@@ -48,3 +50,4 @@ class Solution {
         return -1;
     }
 }
+```

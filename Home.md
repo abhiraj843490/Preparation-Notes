@@ -1,17 +1,4 @@
-m    t   w   th    F         sa     su
-1     2   3    4    5H      6w    7w
-8     9  10   11  12      13w  14w
-H   16  H   18   19      20w  21w
-
-1000 - 10
-1 - 10/1000 x 80000
-
-cement +Rod : 1L
-Mistiri: 141k
-Mitti :   40k
-water:  60k
-extra:   20k
-ita :      30k
+Git pass: @Soni20abc
 
 -------------
 Total : 4.05 L
