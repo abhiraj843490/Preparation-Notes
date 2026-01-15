@@ -48,23 +48,21 @@ Let’s understand this deeply (a favorite in interviews 👇)
 ### 🧱 (A) Internal Structure (Pre-Java 8)
 
 - HashMap uses an **array of buckets** internally.
-    
 - Each bucket is a **Linked List** of key-value pairs (`Node` objects).
 
 ### 🧠 Hashing Process
 
 1. You call:
-    
     ```java
     map.put("name", "John");
     ```
-    
 2. Java calculates the **hash code** of `"name"`.
     
 3. HashMap uses this hash code to find the **bucket index** in the internal array.
     
 4. If no key exists → it creates a new node.  
-    If key already exists → updates the value.
+
+5. If key already exists → updates the value.
 ---
 
 ### ⚡ (B) Internal Structure (Java 8+)
