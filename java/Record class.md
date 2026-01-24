@@ -1,6 +1,5 @@
 1. Introduced in java 14 and stable in java 16
 2. A **record** in Java is a **special type of class** introduced to **reduce boilerplate code** for classes that are mainly used to hold **immutable data** (like DTOs, value objects).
-3. 
 
 ### ✅ **Syntax**
 

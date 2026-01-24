@@ -95,7 +95,7 @@ Contains:
 - Payload (user info)
     
 - Signature
-    
+
 
 ---
 

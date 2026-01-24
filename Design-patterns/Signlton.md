@@ -1,10 +1,11 @@
 ```java
-public class LazySingleton {
-    private static LazySingleton instance;
-    private LazySingleton() {}
-    public static LazySingleton getInstance() {
+// LazySingleton
+public class Singleton {
+    private static Singleton instance;
+    private Singleton() {}
+    public static Singleton getInstance() {
         if (instance == null) {
-            instance = new LazySingleton();
+            instance = new Singleton();
         }
         return instance;
     }

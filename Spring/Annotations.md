@@ -59,6 +59,59 @@ This process involves the container injecting the required dependencies into obj
 Spring container injects objects into other objects.
 It manages and provides dependencies to objects or components.
 
+
+
+## @Primary Annotation
+Marks a bean as the default choice when multiple beans are available for autowiring
+
+
+```java
+public interface PaymentService {
+    void pay();
+}
+
+@Service
+public class CreditCardPayment implements PaymentService {
+    public void pay() {
+        System.out.println("Paid using Credit Card");
+    }
+}
+
+@Service
+@Primary
+public class DebitCardPayment implements PaymentService {
+    public void pay() {
+        System.out.println("Paid using Debit Card");
+    }
+}
+
+@RestController
+public class PaymentController {
+    private final PaymentService paymentService;
+
+    @Autowired
+    public PaymentController(PaymentService paymentService) {
+        this.paymentService = paymentService;
+    }
+}
+```
+
+## @Qualifier Annotation
+specifies exactly which bean to inject when multiple beans of the same type exist
+
+```java
+@RestController
+public class PaymentController {
+    private final PaymentService paymentService;
+
+@Autowired
+public PaymentController(@Qualifier("creditCardPayment") PaymentService paymentService) {
+    this.paymentService = paymentService;
+    }
+}
+```
+
+
 ## Scheduling Annotations
 
 **@EnableAsync**
@@ -462,53 +515,8 @@ Public void divide(int fnum, int snum){
 	Int result = fnum/snum;
 }
 
-## @Primary Annotation
-Marks a bean as the default choice when multiple beans are available for autowiring
-
-public interface PaymentService {
-    void pay();
-}
-
-@Service
-public class CreditCardPayment implements PaymentService {
-    public void pay() {
-        System.out.println("Paid using Credit Card");
-    }
-}
-
-@Service
-@Primary
-public class DebitCardPayment implements PaymentService {
-    public void pay() {
-        System.out.println("Paid using Debit Card");
-    }
-}
-
-@RestController
-public class PaymentController {
-    private final PaymentService paymentService;
-
-    @Autowired
-    public PaymentController(PaymentService paymentService) {
-        this.paymentService = paymentService;
-    }
-}
-
-
-## @Qualifier Annotation
-specifies exactly which bean to inject when multiple beans of the same type exist
-
-@RestController
-public class PaymentController {
-    private final PaymentService paymentService;
-
-@Autowired
-public PaymentController(@Qualifier("creditCardPayment") PaymentService paymentService) {
-    this.paymentService = paymentService;
-    }
-}
 
 
 
 
-## Q. what is the difference b/w component and service annotation, and what will happen when in Dao class going to use Service Annotation?
+## Q. what is the difference b/w @component and @service annotation, and what will happen when in Dao class going to use Service Annotation?

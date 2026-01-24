@@ -1,5 +1,3 @@
-# ✅ **Abstract Class vs Interface
-
 ## 🔷 **1. What is an Abstract Class?**
 
 An **abstract class** is a class that:
@@ -8,8 +6,6 @@ An **abstract class** is a class that:
 - Can contain **abstract methods** (without body)
 - Can also contain **concrete methods** (with body)
 - Can have **constructors**, **fields**, and **state**
-
-### ➤ Example:
 
 ```java
 abstract class Animal {
@@ -158,10 +154,3 @@ If you want, I can also give:
 ✔ **Trick MCQs asked in HackerRank/OA**  
 ✔ **Real coding questions related to interfaces & abstraction**
 
-Would you like these?
-
-
-
-```java 
-Encapsulation in Java is a core object-oriented programming (OOP) concept that involves bundling data (variables) and the methods that operate on that data into a single unit, typically a class. It is a mechanism for restricting direct access to some of an object's components, protecting the internal state and promoting modularity.
-```

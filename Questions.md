@@ -334,6 +334,108 @@ public static void main(String[] args) {
 
 
 
+Q. Accenture ask: **Design a simple database connectivity library**
+
+- User can choose DB based on requirement
+- Initially support **2 DB implementations**
+- Later we should be able to **add more DBs without changing existing code**
+- User should not change code just to change DB
+## Answer :
+
+👉 **Use Strategy Pattern + Factory Pattern (or DI)**  
+This follows **Open–Closed Principle (OCP)** and **Dependency Inversion Principle (DIP)**.
+
+---
+
+## 🔹 Step-by-step Design
+
+### 1️⃣ Create a common interface (Abstraction)
+
+```java
+public interface Database {
+    void connect();
+}
+```
+
+---
+
+### 2️⃣ Create concrete implementations
+
+```java
+public class MySQLDatabase implements Database {
+    @Override
+    public void connect() {
+        System.out.println("Connected to MySQL");
+    }
+}
+```
+
+```java
+public class PostgresDatabase implements Database {
+    @Override
+    public void connect() {
+        System.out.println("Connected to PostgreSQL");
+    }
+}
+```
+
+---
+
+### 3️⃣ Factory to decide which DB to use
+
+```java
+public class DatabaseFactory {
+
+    public static Database getDatabase(String dbType) {
+        if ("MYSQL".equalsIgnoreCase(dbType)) {
+            return new MySQLDatabase();
+        } else if ("POSTGRES".equalsIgnoreCase(dbType)) {
+            return new PostgresDatabase();
+        }
+        throw new IllegalArgumentException("Unsupported DB");
+    }
+}
+```
+
+---
+
+### 4️⃣ Client code (User does NOT depend on DB classes)
+
+```java
+public class Application {
+    public static void main(String[] args) {
+        Database db = DatabaseFactory.getDatabase("MYSQL");
+        db.connect();
+    }
+}
+```
+
+---
+
+## 🔹 Adding New DB Later (WITHOUT code change in client)
+
+```java
+public class OracleDatabase implements Database {
+    public void connect() {
+        System.out.println("Connected to Oracle");
+    }
+}
+```
+
+➡️ Just update **factory or config**, not business code.
+
+---
+
+## ⭐ Best Enterprise Answer (Extra points)
+
+In **Spring Boot**, this is done via:
+
+- Interface + Implementations
+- `@Component`
+- `@Qualifier` or config-based selection
+
+Or using **SPI / Dependency Injection**
+
 # Valid parenthesis Problem
 
 #

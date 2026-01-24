@@ -102,7 +102,6 @@ Now you can add a `Triangle` without modifying `AreaCalculator`.
 **Meaning**
 
 - If `B` is a subclass of `A`, you should be able to use `B` **anywhere** `A` is expected, **without breaking behavior**.
-    
 
 **Example (Bad)**
 
@@ -148,7 +147,6 @@ class Ostrich implements Bird {
 - Split **large interfaces** into **smaller, more specific ones**.
     
 - Prevents classes from implementing unnecessary methods.
-    
 
 **Example (Bad)**
 

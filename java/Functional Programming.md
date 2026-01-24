@@ -1,10 +1,8 @@
-> Functional programming is a style of programming where computation is treated as the evaluation of pure functions without changing state or data.  
-> 
-> It focuses on immutability, declarative code, and higher-order functions.  
-> 
-> In Java, this is achieved using lambda expressions, streams, and functional interfaces introduced in Java 8.
----
-> Functional Programming = “Programming using functions as first-class citizens.”
+
+==Functional programming is a style of programming where computation is treated as the evaluation of pure functions without changing state or data. 
+It focuses on immutability, declarative code, and higher-order functions.   In Java, this is achieved using lambda expressions, streams, and functional interfaces introduced in Java 8.
+
+Functional Programming = “Programming using functions as first-class citizens.”
 
 ---
 ## 2️⃣ Key Idea
@@ -31,26 +29,12 @@ Instead of **how to do** (imperative style), you focus on **what to do** (declar
 |**No side effects**|Avoid modifying external state|Don’t modify global vars or I/O inside functions|
 |**Recursion over loops**|Loops replaced by recursion or stream APIs|`reduce()` instead of `for` loop|
 
----
 
-## 💡 4️⃣ Functional Programming in Java (from Java 8)
-
-Before Java 8 → Java was **purely OOP**.  
-From Java 8 onward → it supports **functional constructs** via:
-
-1️⃣ **Lambda Expressions**  
-2️⃣ **Functional Interfaces** (`Predicate(test())`, `Function (apply())`, `Consumer (accept())`, Supplier<T> (get()))  
-3️⃣ **Streams API**  
-4️⃣ **Method References**  
-5️⃣ **Optional API**
-
----
 
 ## ⚙️ 5️⃣ Example — Traditional vs Functional
-
-### 🧱 Traditional (Imperative)
-
 ```java
+🧱 Traditional (Imperative)
+
 List<Integer> numbers = Arrays.asList(1,2,3,4,5);
 List<Integer> evenNumbers = new ArrayList<>();
 
@@ -60,27 +44,22 @@ for (Integer n : numbers) {
     }
 }
 System.out.println(evenNumbers);
-```
 
-### 🚀 Functional (Declarative)
 
-```java
+🚀 Functional (Declarative)
+
 List<Integer> numbers = Arrays.asList(1,2,3,4,5);
 List<Integer> evenNumbers = numbers.stream()
                                    .filter(n -> n % 2 == 0)
                                    .toList();
-
 System.out.println(evenNumbers);
+
 ```
 
-✅ Both produce `[2,4]`,  
-but the second one is **shorter, cleaner, and side-effect-free.**
-
----
 
 ## 🧩 6️⃣ Functional Interfaces
 
-A **Functional Interface** is an interface with exactly **one abstract method**.
+A Functional Interface is an interface with exactly **one abstract method**.
 
 Examples:
 
@@ -124,13 +103,9 @@ int addToTotal(int x) {
 }
 ```
 
-✅ A **pure function** doesn’t depend on or modify external state.
-
----
-
 ## ⚙️ 8️⃣ Immutability Example
 
-```java
+```java 
 List<String> names = List.of("Abhi", "Raj", "Sam"); // immutable list
 names.add("New"); // ❌ UnsupportedOperationException
 ```
@@ -212,6 +187,7 @@ public class ThirdLargest {
         System.out.println("3rd Largest: " + thirdLargest);
     }
 }
-
 ```
+
+
 

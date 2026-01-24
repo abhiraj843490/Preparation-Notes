@@ -86,3 +86,31 @@
 85. yellow.ai
 86. flipkart
 87. hcl tech
+88. zebra
+89. clarigo infotech
+90. renxo
+91. uts
+92. johnson controls
+93. ginit
+94. pega system
+95. ss&c
+96. Red hat
+97. tech Mahindra
+98. sauceLabs
+99. Navi
+100. visa
+101. natwest group
+102. ford motor
+103. mastercard
+104. autodesk
+105. wipro
+106. blackberry
+107. atlassian
+108. caterpillar.inc
+109. uber
+110. wheelsEye
+111. warpstream labs
+112. blaize
+113. rubrik
+
+

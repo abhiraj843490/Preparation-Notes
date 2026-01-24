@@ -22,7 +22,7 @@ It includes everything that JRE has, plus tools to **compile** and **debug** Jav
 - `javadoc` → generates documentation
     
 - `jar` → package utility
-    
+
 
 **Example:**
 

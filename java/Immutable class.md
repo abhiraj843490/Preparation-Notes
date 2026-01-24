@@ -1,5 +1,7 @@
 An **immutable class** is a class whose **state (field values) cannot be changed** after it’s created.
 
+Immutable classes are those whose instances cannot be modified after creation, ensuring thread safety and predictable behavior.
+
 ---
 ## 🧩 **1️⃣ What is an Immutable Class?**
 
@@ -225,4 +227,8 @@ public record User(List<String> roles) {
 
 ---
 
-Would you like me to give a **mutable vs immutable** example side-by-side for clarity (often asked as a follow-up)?
+
+
+
+
+
