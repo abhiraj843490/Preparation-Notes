@@ -40,3 +40,81 @@ CompletableFuture<CombineRes> combined = allFuture.thenApply(v->{
 	return handleError(ex);
 });
 ```
+
+
+```java
+import java.util.concurrent.*;
+
+public class ApiAggregator {
+
+    private static final ExecutorService executor =
+            Executors.newFixedThreadPool(10); // custom thread pool
+
+    public static void main(String[] args) {
+
+        CompletableFuture<Res1> f1 =
+                CompletableFuture.supplyAsync(() -> callApi1(), executor);
+
+        CompletableFuture<Res2> f2 =
+                CompletableFuture.supplyAsync(() -> callApi2(), executor);
+
+        CompletableFuture<Res3> f3 =
+                CompletableFuture.supplyAsync(() -> callApi3(), executor);
+
+        CompletableFuture<CombineRes> combined =
+                CompletableFuture.allOf(f1, f2, f3)
+                        .thenApplyAsync(v ->
+                                combine(f1.join(), f2.join(), f3.join()),
+                                executor
+                        )
+                        .exceptionally(ex -> handleError(ex));
+
+        // If you need final result (like in main thread)
+        CombineRes result = combined.join();
+        System.out.println(result);
+
+        executor.shutdown();
+    }
+
+    // ---------- Mock Methods ----------
+
+    static Res1 callApi1() {
+        sleep(1000);
+        return new Res1("Data1");
+    }
+
+    static Res2 callApi2() {
+        sleep(1200);
+        return new Res2("Data2");
+    }
+
+    static Res3 callApi3() {
+        sleep(800);
+        return new Res3("Data3");
+    }
+
+    static CombineRes combine(Res1 r1, Res2 r2, Res3 r3) {
+        return new CombineRes(r1.value + " " + r2.value + " " + r3.value);
+    }
+
+    static CombineRes handleError(Throwable ex) {
+        System.out.println("Error occurred: " + ex.getMessage());
+        return new CombineRes("Fallback Response");
+    }
+
+    static void sleep(long ms) {
+        try { Thread.sleep(ms); } catch (InterruptedException ignored) {}
+    }
+
+    // ---------- DTOs ----------
+    static class Res1 { String value; Res1(String v){ value=v; } }
+    static class Res2 { String value; Res2(String v){ value=v; } }
+    static class Res3 { String value; Res3(String v){ value=v; } }
+    static class CombineRes {
+        String data;
+        CombineRes(String d){ data=d; }
+        public String toString(){ return data; }
+    }
+}
+
+```
