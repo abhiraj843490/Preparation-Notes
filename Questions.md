@@ -1,3 +1,20 @@
+https://www.ambitionbox.com/interviews/accolite-interview-questions/java-developer
+
+Horizontal scaling and vertical scaling
+
+- Q1. What are immutable classes
+- Ans. Immutable classes are those whose instances cannot be modified after creation, ensuring thread safety and predictable behavior.
+    
+    - 1. Immutable classes cannot be changed once created. Example: String class in Java.
+        
+    - 2. They help in maintaining thread safety as their state cannot be altered.
+        
+    - 3. To create an immutable class, declare the class as final and all fields as private and final.
+        
+    - 4. Provide no setters and only getters for accessing field values.
+        
+    - 5. Use a constructor to initialize all fields at the time of object creation.
+
 1. what is record class how will handle the getter setter?
 2. String class is public or private if public then how it is immutable?
 3. how to docker image?
@@ -332,7 +349,148 @@ public static void main(String[] args) {
 }
 ```
 
+/*
 
+ * Click `Run` to execute the snippet below!
+
+ */
+
+  
+
+import java.io.*;
+import java.util.*;
+/*
+ * To execute Java, please define "static void main" on a class
+ * named Solution.
+ *
+ * If you need more classes, simply define them inline.
+ */
+
+
+// Given an input of String containing a simple sentense. Can you please write an algorithm to reverse each word of
+
+// the sentence without changing the order of the words in the sentence.
+
+// For e,g. "One simple sentence without complexity" --> "enO elpmis ecnetnes tuohtiw ytixelpmoc"
+
+  
+
+class Solution {
+  public static void main(String[] args) {
+
+    String str = "One simple sentence without complexity";
+    String res = reverseString(str);
+    // System.out.println(res );
+    String response = reverseString1(str);
+
+    System.out.println(response );
+
+  }
+
+  
+
+  static String reverseString(String str){
+    StringBuilder result = new StringBuilder();
+    StringBuilder word = new StringBuilder();
+    for(int i=0;i<str.length();i++){
+      if(str.charAt(i)!=' '){
+        word.append(str.charAt(i));
+      }
+      else{
+        result.append(word.reverse().append(" "));
+        word.setLength(0);
+      }
+    }
+    result.append(word.reverse());
+    return result.toString();
+  }
+
+  static String reverseString1(String str){
+    char[] arr = str.toCharArray();
+    int start =0;
+    for(int i=0;i<=arr.length;i++){
+      if(i==arr.length || arr[i]==' '){
+        reverse(arr, start, i-1);
+        start=i+1;
+      }
+    }
+    return new String(arr);
+  }
+
+  static void reverse(char []arr, int start, int end){
+    while(start<end){
+      char t = arr[start];
+      arr[start]=arr[end];
+      arr[end]=t;
+      start++; end--;
+    }
+  }
+}
+
+  
+
+// Please design a simple database connectivity library where the user can choose depending on requiremnt a choice
+
+// of DBMS to use where we provide say initially 2 implementation and later could add more DB connectivity.
+
+// User must not do any code change just to change DB.
+
+  
+  
+
+interface Database{
+
+  void connect();
+
+}
+
+  
+
+class MySqlDatabase implements Database{
+
+  void connect(){}
+
+}
+
+  
+
+class OracleDatabase implements Database{
+
+  void connect(){}
+
+}
+
+  
+  
+  
+
+class DatabaseFactory{
+
+  public static Database getDatabase(String dty){
+
+    if("MYSQL".equalsIgnoreCase(dty)){
+
+      return new MySqlDatabase();
+
+    }
+
+    else if("ORCALE".equalsIgnoreCase(dty)){
+
+      return new OracleDatabase();
+
+    }
+
+  }
+
+}
+
+  
+
+main(){
+
+Database db = DatabaseFactory.getDatabase("ORACLE");
+
+}
 
 Q. Accenture ask: **Design a simple database connectivity library**
 
