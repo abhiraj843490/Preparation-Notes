@@ -1,20 +1,4 @@
 
-https://medium.com/@reetesh043/difference-between-completablefuture-and-future-in-java-4f7e00bcdb56
-
-				Future vs Completable Future
-**Future:** 
-	1. Introduced in Java 5, 
-	2. Future represents the result of an asynchronous computation. 
-	3. It provides methods to check if the computation is done, to wait for its completion, and to retrieve the result, it is blocking. However, its capabilities are quite basic and limited. [**_Read More On Future_**](https://medium.com/@reetesh043/future-interface-in-java-ef9ade2b97b0)**_.
-	4. You can’t chain multiple async operations.
-	5. You can’t handle exceptions elegantly.
-	6. It blocks when calling `.get()`.
-
-**Completable Future:** 
-	1. Introduced in Java 8, 
-	2. Completable Future is an enhancement of Future. 
-	3. It not only represents a future result but also provides to compose, combine, execute asynchronous tasks, and handle their results without blocking. [**_Read More On CompletableFuture._**](https://medium.com/@reetesh043/completablefuture-in-java-1f972e96fab8?sk=ae42b5d71a7388f2915819bef4b2d79f)
-
 ==Synchronous tasks execute one after the other, and each task must complete before the next one can start.== 
 
 ==Asynchronous tasks, however, run in parallel;== ==a task can begin before the previous one finishes, making it non-blocking and more efficient for I/O-bound operations like network requests==.
@@ -375,5 +359,142 @@ Use this final statement:
 
 ---
 
-## Thread starvation
-Semaphore
+# 🔹 What is `volatile` in Java?
+
+> **`volatile` ensures visibility of variable changes across threads.**
+
+When a variable is marked `volatile`, **every thread reads it from main memory, not from its CPU cache**.
+
+---
+
+## 🧠 Problem Without `volatile`
+
+Each thread keeps its own **cached copy** of variables.
+
+```java
+class Test {
+    static boolean flag = false;
+
+    public static void main(String[] args) {
+
+        new Thread(() -> {
+            while (!flag) { }   // may loop forever ❌
+            System.out.println("Stopped");
+        }).start();
+
+        flag = true;
+    }
+}
+```
+
+👉 Worker thread may never see updated value → infinite loop.
+
+---
+
+## ✅ With `volatile`
+
+```java
+static volatile boolean flag = false;
+```
+
+Now:
+
+- Update by one thread
+    
+- Immediately visible to others
+    
+
+---
+
+# 🔥 What `volatile` Guarantees
+
+|Feature|Supported?|
+|---|---|
+|Visibility|✅ Yes|
+|Atomicity|❌ No|
+|Prevents reordering|✅ Yes|
+
+---
+
+## 🔴 Very Important: `volatile` ≠ thread safety
+
+```java
+volatile int count = 0;
+
+count++;  // NOT atomic ❌
+```
+
+Because `count++` = 3 steps:
+
+1. Read
+    
+2. Increment
+    
+3. Write
+    
+
+Multiple threads can corrupt value.
+
+✔ Use:
+
+```java
+AtomicInteger
+synchronized
+Lock
+```
+
+---
+
+# 🔹 When to Use `volatile`
+
+✔ Flags  
+✔ Status variables  
+✔ Stop signals
+
+```java
+volatile boolean running = true;
+```
+
+---
+
+# 🔹 When NOT to Use
+
+❌ Counters  
+❌ Banking operations  
+❌ Shared mutable data
+
+---
+
+# 🔥 Real Interview Example
+
+```java
+class Worker extends Thread {
+    private volatile boolean running = true;
+
+    public void run() {
+        while (running) {
+            // work
+        }
+    }
+
+    public void stopWorker() {
+        running = false;
+    }
+}
+```
+
+---
+
+# 🧠 Interview One-Liner
+
+> `volatile` ensures visibility of changes to a variable across threads and prevents instruction reordering, but it does not guarantee atomicity.
+
+---
+
+If you want next:
+
+- `volatile vs synchronized`
+    
+- `AtomicInteger vs volatile`
+    
+- Java Memory Model in simple terms

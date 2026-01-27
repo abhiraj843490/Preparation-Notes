@@ -118,3 +118,21 @@ public class ApiAggregator {
 }
 
 ```
+
+
+
+https://medium.com/@reetesh043/difference-between-completablefuture-and-future-in-java-4f7e00bcdb56
+
+				Future vs Completable Future
+**Future:** 
+	1. Introduced in Java 5, 
+	2. Future represents the result of an asynchronous computation. 
+	3. It provides methods to check if the computation is done, to wait for its completion, and to retrieve the result, it is blocking. However, its capabilities are quite basic and limited. [**_Read More On Future_**](https://medium.com/@reetesh043/future-interface-in-java-ef9ade2b97b0)**_.
+	4. You can’t chain multiple async operations.
+	5. You can’t handle exceptions elegantly.
+	6. It blocks when calling `.get()`.
+
+**Completable Future:** 
+	1. Introduced in Java 8, 
+	2. Completable Future is an enhancement of Future. 
+	3. It not only represents a future result but also provides to compose, combine, execute asynchronous tasks, and handle their results without blocking. [**_Read More On CompletableFuture._**](https://medium.com/@reetesh043/completablefuture-in-java-1f972e96fab8?sk=ae42b5d71a7388f2915819bef4b2d79f)

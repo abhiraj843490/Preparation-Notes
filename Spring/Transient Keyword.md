@@ -1,0 +1,2 @@
+
+The `transient` keyword in Java is ==a field modifier that indicates a variable should **not** be included in the default serialization process==. When an object is serialized (converted into a byte stream for storage or transmission), the value of a transient field is ignored by the Java Virtual Machine (JVM).
