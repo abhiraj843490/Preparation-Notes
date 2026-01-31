@@ -40,3 +40,6 @@ infinx : 6206407327 shreya raj : 21-11-25
 Anjali malik 20
 
 https://account.amazon.jobs/en-US/applicant
+
+
+sumanta pal & Ananya mitra: pending to take status
