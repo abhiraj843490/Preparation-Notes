@@ -18,18 +18,18 @@ Internal working:
 	3. Multiple threads could access different segments simultaneously.
 	4. Only one thread could modify a segment at a time.
 2. Bucket Locking (java 8+)
-	1. Segments are removed; uses a single array of bins( buckets)
-	2. Each bin can be a linked list or a tree (for high collision bins)
+	1. Segments are removed; uses a single array of  buckets
+	2. Each bucket can be a linked list or a tree (for high collision bins)
 	3. Uses fine grained locking (synchronized on individual bins) for updates
 	4. Read operations are mostly lock-free using volatile and CAS (compare-and swap) operations
 3. Put operations:
-	1. computes hash and finds the bin
-	2. if the bin is empty, uses CAS to insert
-	3. if not, synchronizes on the bin and updates the linked list/tree
-	4. if the bin becomes too large, it is converted to a tree for faster lookups.
+	1. computes hash and finds the bucket
+	2. if the bucket is empty, uses CAS to insert
+	3. if not, synchronizes on the bucket and updates the linked list/tree
+	4. if the bucket becomes too large, it is converted to a tree for faster lookups.
 4. Get Operations:
-	1. computes hash and finds the bin
-	2. traverses the bin (linked list or tree) to find the key
+	1. computes hash and finds the bucket
+	2. traverses the bucket (linked list or tree) to find the key
 	3. No locking is needed for most reads.
 5. Resize operations:
 	1. when the map grows, it resizes the internal array
@@ -37,7 +37,7 @@ Internal working:
 6. thread safety:
 	1. uses volatile for visibility
 	2. uses CAS for atomic updates
-	3. synchronizes only on bins for updates, not the whole map.
+	3. synchronizes only on buckets for updates, not the whole map.
 
 
 Advantages:

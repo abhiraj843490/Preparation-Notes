@@ -40,8 +40,8 @@ Horizontal scaling and vertical scaling
 18. vector vs array
 19. set vs map
 20. arraylist vs linkedlist
-21. Explain how to find the fourth highest salary from a list using Java 8 streams.
-list.stream().filter
+21. Explain how to find the fourth highest salary from a list using Java 8 streams.list.stream().filter
+
 
 
 22. @component vs @service
@@ -56,6 +56,12 @@ list.stream().filter
 29. Hipa 
 30. constructor chaning
 31. kafka failure case how it will manage
+32. equals() and hashcode()
+33. what will happen when equals() override but not hashcode() and vise versa?
+34. its a good idea use key in map as immutable and why
+35. what is object level lock and class level with thread
+36. immutable class steps and what are benefits
+37. LRU cache
 
 
 
@@ -598,3 +604,27 @@ Or using **SPI / Dependency Injection**
 
 #
 Q. Nearest largest number
+
+
+```java
+/*  
+Given a m x n grid filled with non-negative numbers,  
+find a path from top left to bottom right,  
+which minimizes the sum of all numbers along its path.  
+Note: You can only move either down or right at any point in time.  
+[1,3,1]  
+[1,5,10]  
+[4,2,1]  
+  
+output: 9  
+*/  
+/*import java.util.*;  
+  
+public class Main  
+{  
+    public static void main(String[] args) {        int[][]mat = {{1,3,1},                {1,5,10},                {4,2,1}};        System.out.println(minPathSum(mat, mat.length, mat[0].length));    }  
+    public static int minPathSum(int[][]mat, int m, int n) {        int [][]res=new int[m][n];        // if(i==0 && j==0){        //     return mat[0][0];        // }        res[0][0]=mat[0][0];  
+        // if(i<0 ||j<0){        //     return Integer.MAX_VALUE;        // }        for(int i=1;i<m;i++){            res[i][0]=res[i-1][0]+mat[i][0];        }        for(int i=1;i<n;i++){            res[0][i]=res[0][i-1]+mat[0][i];        }        // int top = minPathSum(mat, i-1, j);        // int left = minPathSum(mat, i, j-1);  
+        // int res = mat[i][j] +Math.min(left, top);        for(int i=1;i<m;i++){            for(int j=1;j<n;j++){                res[i][j]=mat[i][j]+Math.min(res[i-1][j], res[i][j-1]);                //System.out.println(res[i][j]);            }  
+        }        return res[m-1][n-1];    }}*/
+```

@@ -1,11 +1,7 @@
-Perfect 👍 This is **one of the most important DB topics for interviews + real enterprise work**.  
-I’ll go **slow, deep, and practical**, with **real-life examples**, not textbook fluff.
-
----
 
 # 🔷 What is Normalization? (In One Line)
 
-**Normalization = organizing data to**
+**Normalization = organizing data to** ensure **data integrity** and make data easier to maintain
 
 - ❌ reduce **redundancy**
     

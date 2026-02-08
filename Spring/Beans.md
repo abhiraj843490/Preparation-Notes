@@ -14,7 +14,7 @@ Bean Scope:
 6. Application: One instance per Spring ApplicationContext.
 
 Life cycle:
-1. constructor call 
+1. constructor call (init)
 2. dependency injection
 3. post construct
 4. bean ready to use
