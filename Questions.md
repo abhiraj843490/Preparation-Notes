@@ -600,14 +600,15 @@ In **Spring Boot**, this is done via:
 
 Or using **SPI / Dependency Injection**
 
-# Valid parenthesis Problem
+# Valid parenthesis Problem(Accenture)
 
 #
-Q. Nearest largest number
+Q. count total number of prime number in n(wissen)
+Q. Nearest largest number(Wissen)
 
 
 ```java
-/*  
+/*  Wissen Tech
 Given a m x n grid filled with non-negative numbers,  
 find a path from top left to bottom right,  
 which minimizes the sum of all numbers along its path.  
@@ -618,13 +619,58 @@ Note: You can only move either down or right at any point in time.
   
 output: 9  
 */  
-/*import java.util.*;  
+import java.util.*;  
   
 public class Main  
 {  
-    public static void main(String[] args) {        int[][]mat = {{1,3,1},                {1,5,10},                {4,2,1}};        System.out.println(minPathSum(mat, mat.length, mat[0].length));    }  
-    public static int minPathSum(int[][]mat, int m, int n) {        int [][]res=new int[m][n];        // if(i==0 && j==0){        //     return mat[0][0];        // }        res[0][0]=mat[0][0];  
-        // if(i<0 ||j<0){        //     return Integer.MAX_VALUE;        // }        for(int i=1;i<m;i++){            res[i][0]=res[i-1][0]+mat[i][0];        }        for(int i=1;i<n;i++){            res[0][i]=res[0][i-1]+mat[0][i];        }        // int top = minPathSum(mat, i-1, j);        // int left = minPathSum(mat, i, j-1);  
-        // int res = mat[i][j] +Math.min(left, top);        for(int i=1;i<m;i++){            for(int j=1;j<n;j++){                res[i][j]=mat[i][j]+Math.min(res[i-1][j], res[i][j-1]);                //System.out.println(res[i][j]);            }  
-        }        return res[m-1][n-1];    }}*/
+    public static void main(String[] args) {        
+    int[][]mat = {{1,3,1},                
+			    {1,5,10},                
+				{4,2,1}};        
+				System.out.println(minPathSum(mat, mat.length, mat[0].length));    }  
+    public static int minPathSum(int[][]mat, int m, int n) {        
+	    int [][]res=new int[m][n];        
+	    // if(i==0 && j==0){        
+	    //     return mat[0][0];        
+	    // }        
+	    res[0][0]=mat[0][0];  
+        // if(i<0 ||j<0){        
+        //     return Integer.MAX_VALUE;        
+        // }        
+        for(int i=1;i<m;i++){            
+	        res[i][0]=res[i-1][0]+mat[i][0];        
+	    }        
+	    for(int i=1;i<n;i++){            
+		    res[0][i]=res[0][i-1]+mat[0][i];        
+		}        
+		// int top = minPathSum(mat, i-1, j);        
+		// int left = minPathSum(mat, i, j-1);  
+        // int res = mat[i][j] +Math.min(left, top);        
+        for(int i=1;i<m;i++){            
+	        for(int j=1;j<n;j++){                
+		        res[i][j]=mat[i][j]+Math.min(res[i-1][j], res[i][j-1]);                //System.out.println(res[i][j]);            }  
+        }        
+        return res[m-1][n-1];    
+        }
+    }
+```
+
+```java
+// Wissen tech
+public static void main(){  
+    List<String> list = Arrays.asList(  
+            "abc", "xyx"  
+    );  
+    list.stream()  
+            .collect(Collectors.groupingBy(s->s,  
+                     Collectors.counting()))  
+            .entrySet()  
+            .stream()  
+            .filter(c->c.getValue()>1)  
+            .collect(Collectors.toMap(  
+                    Map.Entry::getKey,  
+                    Map.Entry::getValue  
+            ));  
+  
+}
 ```
