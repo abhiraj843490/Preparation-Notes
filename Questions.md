@@ -674,3 +674,69 @@ public static void main(){
   
 }
 ```
+
+
+## AnthenaHealth
+1. Spring boot annotations
+2. Threads (focused on asynchronous apis call )
+```java
+
+You have a RecentCounter class which counts the number of recent requests within a certain time frame.
+
+Implement the RecentCounter class:
+
+RecentCounter() — Initializes the counter with zero recent requests.  
+ping(int t) — Adds a new request at time t, where t represents some time in milliseconds, and returns the number of requests that have happened in the past 3000 milliseconds (including the new request). Specifically, return the number of requests that have happened in the inclusive range [t - 3000, t].  
+It is guaranteed that every call to ping uses a strictly larger value of t than the previous call.
+
+Example  
+Input:  
+["RecentCounter", "ping", "ping", "ping", "ping"]  
+[[], [1], [100], [3001], [3002]]
+
+Output:  [null, 1, 2, 3, 3]
+
+package com.assembling;  
+  
+import java.util.ArrayList;  
+import java.util.List;  
+  
+public class Test6 {  
+    static List<Integer> list = new ArrayList<>();  
+  
+    public static void main(String[]args){  
+  
+        String [] counterMsg = {"RecentCounter", "ping", "ping","ping", "ping", "ping"};  
+        int [] timer = {-1,1,100,3001,3002,9000};  
+        for(int i=0;i<counterMsg.length;i++){  
+            if(counterMsg[i]=="ping"){  
+                System.out.println(ping(timer[i]));  
+            }else{  
+                list = new ArrayList<>();  
+            }  
+        }  
+  
+    }  
+  
+    public static int ping(int timer){  
+        list.add(timer);  
+        int left = binarsearch(timer-3000);  
+        return list.size()-left;  
+    }  
+  
+    static int binarsearch(int traget){  
+        int low =0,  high = list.size()-1;  
+        int ans = list.size();  
+        while(low<=high){  
+            int mid = low+(high-low)/2;  
+            if(list.get(mid)>=traget){  
+                ans = mid;  
+                high = mid-1;  
+            }else{  
+                low=mid+1;  
+            }  
+        }  
+        return ans;  
+    }  
+}
+```

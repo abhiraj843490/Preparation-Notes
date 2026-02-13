@@ -28,11 +28,11 @@ Think of it like:
 
 **Student_Course table**
 
-|student_id|student_name|course_id|course_name|instructor|
-|---|---|---|---|---|
-|1|Abhi|C1|Java|Raj|
-|1|Abhi|C2|Spring|Raj|
-|2|Ravi|C1|Java|Raj|
+| student_id | student_name | course_id | course_name | instructor |
+| ---------- | ------------ | --------- | ----------- | ---------- |
+| 1          | Abhi         | C1        | Java        | Raj        |
+| 1          | Abhi         | C2        | Spring      | Raj        |
+| 2          | Swati        | C1        | Java        | T          |
 
 ### ❌ Problems
 
