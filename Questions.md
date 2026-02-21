@@ -679,6 +679,7 @@ public static void main(){
 ## AnthenaHealth
 1. Spring boot annotations
 2. Threads (focused on asynchronous apis call )
+3. what is dependency management (pom.xml)
 ```java
 
 You have a RecentCounter class which counts the number of recent requests within a certain time frame.
@@ -739,4 +740,53 @@ public class Test6 {
         return ans;  
     }  
 }
+```
+
+```java 
+
+// FLAME GAME PROBLEM
+package com.assembling;  
+  
+import java.util.*;  
+  
+public class Test6<T> {  
+    public static void main(String[]args){  
+        String name1 = "aabba";  
+        String name2 = "aab";  
+  
+        int count = getDistinct(name1, name2);  
+        String ans = getFlamedData(count);  
+    }  
+  
+    static String  getFlamedData(int count){  
+        List<Character> flames = Arrays.asList('F', 'L', 'A', 'M','E','S');  
+        int ind = 0;  
+        while (flames)  
+  
+    }  
+  
+    static int getDistinct(String n1, String n2){  
+        Map<Character, Integer> map = new HashMap<>();  
+        for(char ch: n1.toCharArray()){  
+            map.put(ch, map.getOrDefault(ch,0)+1);  
+        }  
+        for(char ch: n2.toCharArray()){  
+            map.put(ch, map.getOrDefault(ch,0)-1);  
+        }  
+        int counter = 0;  
+        for(Map.Entry<Character,Integer> entry: map.entrySet()){  
+            if(entry.getValue()==1){  
+                counter++;  
+            }  
+        }  
+        return counter;  
+    }  
+}
+```
+
+``` JAVA
+QUICK SORT
+How to make a class as Generic
+
+
 ```
