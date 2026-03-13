@@ -48,7 +48,7 @@ class ReportPrinter {
 - Achieved by **abstraction** and **polymorphism**.
     
 
-**Example (Bad)**
+**Example (Bad)** [Solution : Use Strategy Design Pattern ]
 
 ```java
 class AreaCalculator {
