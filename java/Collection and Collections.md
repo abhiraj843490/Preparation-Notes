@@ -43,7 +43,6 @@ public class Example {
 ✅ `Collection` here defines the type of container.
 
 ---
-
 ### 🔹 Example of `Collections` Utility Class
 
 ```java

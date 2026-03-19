@@ -7,7 +7,6 @@ Fantastic — we’ll start **from the very beginning of Phase 2 (LLD)** and wor
 2. Solve 1 problem at a time—start with **Parking Lot**.
     
 3. For each problem we’ll cover:
-    
     - Requirements & assumptions (explicitly stated)
     - Core classes & interfaces (UML-like text)
     - Key methods & attributes
@@ -16,7 +15,7 @@ Fantastic — we’ll start **from the very beginning of Phase 2 (LLD)** and wor
     - Edge cases, testing ideas, extensions
     - Interview-style cross-questions and answers
 4. Repeat practice problems (e.g., ATM, Coffee Machine, Logger) after parking lot.
-    
+
 
 If that plan looks good (I’ll assume yes), we’ll start right away.
 

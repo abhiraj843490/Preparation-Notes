@@ -4,7 +4,6 @@
 - It represents a **collection of unique elements** — meaning **no duplicates allowed**.
     
 - Think of it like a **mathematical set** — `{A, B, C}` — you can’t have another “A”.
-    
 
 Example:
 
@@ -31,7 +30,6 @@ Output:
 - Faster lookups (compared to lists for `contains()` checks).
     
 - Ideal for operations like **union**, **intersection**, **difference**.
-    
 
 ---
 
@@ -69,7 +67,7 @@ So the `HashSet` only cares about the **keys** of the map, which ensures uniquen
 
 ---
 
-## 🔢 5️⃣ How Uniqueness Works (hashCode + equals)
+## 5️⃣ How Uniqueness Works (hashCode + equals)
 
 When you add an element:
 
@@ -80,7 +78,6 @@ When you add an element:
 3. If both hashCode and equals are same → duplicate, not added.
     
 4. Else → added as a new unique entry.
-    
 
 Example:
 
@@ -174,7 +171,6 @@ difference.removeAll(b); // [1,2]
 - ✅ **TreeSet** → If you want elements to be sorted.
     
 - ✅ **CopyOnWriteArraySet** → For thread-safe read-heavy collections.
-    
 
 ---
 

@@ -6,6 +6,8 @@ Both are used for **sorting objects**, but their purpose and usage are slightly 
 **Package:** `java.lang`  
 **Purpose:** Used to define the **natural sorting** of objects.
 
+It is a single sorting technique.
+
 ### ➤ Syntax:
 
 ```java
@@ -66,6 +68,8 @@ public class Main {
 
 **Package:** `java.util`  
 **Purpose:** Used to define **custom sorting logic** outside the class.
+
+It is a multiple sorting sequence technique.
 
 ### ➤ Syntax:
 

@@ -1,5 +1,5 @@
 
-# 🔷 What is Normalization? (In One Line)
+# 🔷 What is Normalization?
 
 **Normalization = organizing data to** ensure **data integrity** and make data easier to maintain
 
@@ -60,7 +60,6 @@ Example:
 - One student name → same everywhere
     
 - One course instructor → same everywhere
-    
 
 ### ❌ Without Integrity
 
@@ -119,7 +118,6 @@ You update:
 - Row 1 ✅
     
 - Forget row 3 ❌
-    
 
 Now DB says:
 
@@ -160,7 +158,6 @@ Normalization happens in **levels** called **Normal Forms**.
 - Atomic values (no multi-valued columns)
     
 - No repeating groups
-    
 
 ---
 
@@ -190,7 +187,6 @@ Normalization happens in **levels** called **Normal Forms**.
 - Must be in 1NF
     
 - **No partial dependency**
-    
 
 ---
 
@@ -212,7 +208,6 @@ When a column depends on **part of a composite key**
 Problem:
 
 - product_name depends only on product_id ❌
-    
 
 ---
 
@@ -238,7 +233,6 @@ Problem:
 - Must be in 2NF
     
 - **No transitive dependency**
-    
 
 ---
 
@@ -287,7 +281,6 @@ dept_id → dept_name
 - Stronger version of 3NF
     
 - **Every determinant must be a candidate key**
-    
 
 ---
 
@@ -303,7 +296,6 @@ Rule:
 - Subject → Professor
     
 - Student → Subject ❌
-    
 
 Violates BCNF
 
@@ -322,7 +314,6 @@ Example:
 - Student → skills
     
 - Student → hobbies
-    
 
 ---
 
@@ -338,7 +329,6 @@ Example:
 - Mostly theoretical
     
 - Rarely used in enterprise
-    
 
 ---
 
@@ -356,7 +346,6 @@ Problems:
 - update anomaly
     
 - delete anomaly
-    
 
 ---
 
@@ -383,7 +372,6 @@ Used when:
 - Reporting dashboards
     
 - Performance critical paths
-    
 
 Example:
 

@@ -1211,3 +1211,19 @@ The most common HR questions asked in Wissen Technology Java Developer interview
 1. Can you provide an introduction about yourself, including your current place of...[read more](https://www.ambitionbox.com/interviews/question/can-you-provide-an-introduction-about-yourself-including-your-current-place-of-residence-T5tJJhau)
 2. Please tell us why you are leaving your compa...[read more](https://www.ambitionbox.com/interviews/question/please-tell-us-why-you-are-leaving-your-company-bkPJ8a8Hy)
 3. How do you find the second highest salary from the employee tab...[read mo](https://www.ambitionbox.com/interviews/question/how-do-you-find-the-second-highest-salary-from-the-employee-table-bohq4NO6A)
+
+
+## Q. KPMG
+
+    Given an array of integers temperatures represents the daily temperatures, return an array answer such that answer[i] 
+    is the number of days you have to wait after the ith day to get a warmer temperature. If there is no future day for which 
+    this is possible, 
+	
+	keep answer[i] == 0 instead.
+ 
+Example 1:
+Input: temperatures = [73,74,75,71,69,72,76,73] Output: [1,1,4,2,1,1,0,0]
+Example 2:
+Input: temperatures = [30,40,50,60]Output: [1,1,1,0]
+Example 3:
+Input: temperatures = [30,60,90]Output: [1,1,0]
